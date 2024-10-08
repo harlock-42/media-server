@@ -4,10 +4,16 @@ services:
     build:
       context: ./nestjs
       dockerfile: Dockerfile
+      args:
+        MEDIA_PATH: /app/media
     ports:
       - "3000:3000"
     volumes:
       - ./nestjs:/app
-      - ./videos:/app/videos
+      - media:/app/media
     environment:
       - NODE_ENV=production
+
+volumes:
+  media:
+    driver: local

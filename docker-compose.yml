@@ -1,13 +1,13 @@
-version: '3'
+version: '3.9'
 services:
-  nestjs-app:
-    container_name: nestjs-app
+  nestjs:
     build:
-      context: .
+      context: ./nestjs
       dockerfile: Dockerfile
     ports:
       - "3000:3000"
     volumes:
+      - ./nestjs:/app
       - ./videos:/app/videos
     environment:
       - NODE_ENV=production

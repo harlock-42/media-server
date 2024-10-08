@@ -81,5 +81,4 @@ jobs:
           K3S_DEPLOYMENT_NAME: ${{ vars.K3S_DEPLOYMENT_NAME }}
           K3S_NAMESPACE: ${{ vars.K3S_NAMESPACE }}
         run: |
-          sshpass -p $VPS_PWD ssh -o StrictHostKeyChecking=no root@$VPS_IP "kubectl apply -f /opt/"
           sshpass -p $VPS_PWD ssh -o StrictHostKeyChecking=no root@$VPS_IP "kubectl rollout restart deployment $K3S_DEPLOYMENT_NAME -n $K3S_NAMESPACE"
